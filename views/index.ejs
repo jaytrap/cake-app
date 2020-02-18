@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+  <div class="row">
+  <div class="col-lg-2 col-sm-12">
+    <div class="col-lg-12">
+      <div class="alert alert-danger">
+        <header>
+          <h1> Upload</h1>
+        </header>
+      </div>
+    </div>
+    <div class="wrapper">
+      <form id="form" enctype="multipart/form-data" method="POST" action="/">
+      <div class="sections">
+        <div class="form-group">
+          <label for="category">Select Type:</label>
+          <select class="form-control" id="category" name="category">
+            <option value="5">Basic</option>
+            <option value="6">Deluxe</option>
+            <option value="0">Total</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label for="file">Select File:</label>
+          <input type="file" name="file" class="form-control" placeholder="File" id="file"/>
+        </div>
+
+      </div>
+
+      <footer>
+       <button id="send" value="send" class="btn btn-info">send</button>
+      </footer>
+      </form>
+    </div>
+  </div>
+  <div class="col-lg-5  col-sm-12">
+    <div class="col-lg-12">
+      <div class="alert alert-success">
+        <header>
+          <h1>Chart</h1>
+        </header>
+      </div>
+    </div>
+    <div class="col-lg-12">
+      <figure class="highcharts-figure">
+        <div id="container"></div>
+        <p class="highcharts-description">
+          This chart shows how data labels can be added to the data series. This
+          can increase readability and comprehension for small datasets.
+        </p>
+      </figure>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <div class="col-lg-12">
+      <div class="alert alert-danger">
+        <header>
+          <h1>  Table</h1>
+        </header>
+      </div>
+    </div>
+
+    <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Basic</th>
+        <th scope="col">Deluxe</th>
+        <th scope="col">Total</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr>
+        <td><%= %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+        <td><%=  %></td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+    <div class="notification"></div>
+    <footer>
+      <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+      <script src="/javascripts/bootstrap.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/exporting.js"></script>
+      <script src="https://code.highcharts.com/modules/export-data.js"></script>
+      <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    </footer>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('#example').DataTable();
+      Highcharts.chart('container', {
+        chart: {
+          type: 'line'
+        },
+        title: {
+          text: 'Monthly Average Sales'
+        },
+        subtitle: {
+          text: 'Source: Cake Shope'
+        },
+        xAxis: {
+          categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        },
+        yAxis: {
+          title: {
+            text: 'Sales ($)'
+          }
+        },
+        plotOptions: {
+          line: {
+            dataLabels: {
+              enabled: true
+            },
+            enableMouseTracking: false
+          }
+        },
+        series: [{
+          name: 'Basic',
+          data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+        }, {
+          name: 'Deluxe',
+          data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+        }]
+      });
+
+    } );
+
+  </script>
+  </body>
+</html>
