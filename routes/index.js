@@ -33,18 +33,36 @@ const dataBaseReader = function (req,res) {
             client.close();
             var basicArray = [];
             var deluxArray = [];
+            const dataResult = [
+                {
+                    basic : 0,
+                    deluxe: 0,
+                    amount:0,
+                    date: '2020-02-07T07:49:48.946Z'
+                },
+                {
+                    basic : 0,
+                    deluxe: 0,
+                    amount:0,
+                    date: '2020-02-07T07:49:48.946Z'
+                }
+            ];
+
             if(array1.length <1){
 
             }else {
                 for (let x = 0; x < array1.length; x++) {
-                    if (array1[x]['name'] === "Basic") {
-                        deluxArray.push(array1[x]);
-                    } else if (array1[x]['name'] === "Deluxe") {
-                        basicArray.push(array1[x]);
+                    // if (array1[x]['name'] === "Basic") {
+                    //     deluxArray.push(array1[x]);
+                    // } else if (array1[x]['name'] === "Deluxe") {
+                    //     basicArray.push(array1[x]);
+                    // }
+                    if(dataResult.includes(x => x[0].date == array1[x]['date'])){
+
                     }
                 }
-                array.push(basicArray);
-                array.push(deluxArray);
+                // array.push(basicArray);
+                // array.push(deluxArray);
             }
 
             res.render('index', {
