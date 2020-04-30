@@ -14,7 +14,7 @@
     "form-data": "^3.0.0",
     "highcharts": "^8.0.0",
     "http-errors": "~1.6.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "mongodb": "^3.3.5",
     "mongoose": "^5.8.0",
     "morgan": "~1.9.1",
